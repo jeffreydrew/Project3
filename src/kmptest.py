@@ -2,7 +2,7 @@ def kmp(pattern, text):
     a = len(text)
     b = len(pattern)
 
-    prefix_arr = get_prefix_arr(pattern, b)
+    prefix_arr = lps(pattern, b)
 
     initial_point = []
 
@@ -46,10 +46,11 @@ def lps(pattern, b):
     return lps
 
 
-string = "abcabcabc"
-pat = "abc"
+#testing grounds
+# string = "abcabcabc"
+# pat = "abc"
 
-initial_index = kmp(pat, string)
+# initial_index = kmp(pat, string)
 
-for i in initial_index:
-    print("Pattern is found in the string at index number", i)
+# for i in initial_index:
+#     print("Pattern is found in the string at index number", i)

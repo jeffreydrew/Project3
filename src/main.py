@@ -1,5 +1,7 @@
-import pygame, random, sys
+import pygame, sys
 from pygame.locals import *
+from xortest import modifiedXOR
+from kmptest import kmp
 
 SIZE = (500, 500)
 WHITE = (0, 0, 0)
@@ -58,7 +60,7 @@ class Universe:
         # wont really need this, but we could probably show the bars while the password is being xored, that'd be pretty cool
         # don't do any visual stuff here, its all backend
         ###rules###
-
+        # this is the backend for the bars being updated as the encryption algos run
         pass
 
     def draw(self, screen):
@@ -95,16 +97,18 @@ class Universe:
 def takeInput():  # this can be in CLI or have a way to display this on the window, should prob be part of Universe class
     print("Enter characters to be in password: ")
     characters = input()
+    return characters
     # use search algorithm to find best fit password in rockyou.txt
 
 
 # driver
 def main():
+    characters = takeInput()
+    
     universe = Universe()
     universe.run()
     # will run takeinput(), search algorithm and store the appropriate password, run XOR with input string,
     # create color bars based on the XORed string, and display the password
-    pass
 
 
 if __name__ == "__main__":
